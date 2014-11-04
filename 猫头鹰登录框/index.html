@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+	</head>
+<title>猫头鹰登录框</title>
+<style type="text/css">
+.logbox{
+margin:0 auto;
+width:500px;
+height:300px;
+background:url('maotouying2.jpg') no-repeat;
+
+}
+.input{
+
+height:25px;
+margin:5px;
+}
+.inputbox{
+width:250px;
+margin:0 auto;
+position:relative;
+top:80px;
+left:-20px;
+}
+
+#submit{
+width:50px;
+
+}
+
+
+.move{
+
+height:25px;
+margin:5px;
+position:relative;
+
+-webkit-animation:mymove 0.3s 3; /* Safari and Chrome */
+-webkit-animation-timing-function:ease-in-out;
+}
+@-webkit-keyframes mymove /* Safari and Chrome */
+{
+from {left:-15px;}
+to {left:15px;}
+
+}
+
+</style>
+	<body>
+		<div class="logbox">
+		<div class="inputbox">
+		<input type="text" id="name" placeholder="NAME" class="input">
+		<br>
+	
+		<input type="password" id="pwd" placeholder="PASSWORD" class="input">
+		<br>
+		<input type="button" id="submit"  class="input" value="登录" onclick="verify()">
+		</div>
+		<canvas id="myCanvas" width="200" height="100" style="border:0px solid #c3c3c3;position:relative;top:-66px;left:289px;">
+			Your browser does not support the canvas element.
+		</canvas>
+		<div id="move"></div>
+		</div>
+			
+
+			<script type="text/javascript">
+			function verify(){
+			var n=document.getElementById("name");
+			var p=document.getElementById("pwd");
+			if(n.value=="jessica"&&p.value=="123"){
+			
+			alert("success!");
+			}
+			if(n.value!="jessica"){
+			var m=document.getElementById("name");
+			m.className="move";
+			var c=document.getElementById("myCanvas");
+			c.style.display="";
+			var cxt=c.getContext("2d");
+			cxt.fillStyle="#959595";
+			cxt.beginPath();
+			cxt.arc(70,30,21,0,Math.PI,true);
+			cxt.arc(112,30,21,0,Math.PI,true);
+			cxt.closePath();
+			cxt.fill();
+			setTimeout(function() { deln(); }, 2000);
+			
+			}
+			if(p.value!="123"){
+			
+			var n=document.getElementById("pwd");
+			n.className="move";
+			
+			var c=document.getElementById("myCanvas");
+			   c.style.display="";
+			var cxt=c.getContext("2d");
+			cxt.fillStyle="#959595";
+			cxt.beginPath();
+			cxt.arc(70,30,21,0,Math.PI,true);
+			cxt.arc(112,30,21,0,Math.PI,true);
+			cxt.closePath();
+			cxt.fill();
+			setTimeout(function() { delp(); }, 2000);
+			}
+			
+			
+			}
+			
+			function delp(){
+			var n=document.getElementById("pwd");
+			n.classList.remove('move');
+			n.className="input";
+			var c=document.getElementById("myCanvas");
+		
+                 c.style.display="none";
+       
+
+			}
+			function deln(){
+			var n=document.getElementById("name");
+			n.classList.remove('move');
+			n.className="input";
+			var c=document.getElementById("myCanvas");
+				
+                 c.style.display="none";
+       
+			
+			}
+			</script>
+	</body>
+
+</html>
